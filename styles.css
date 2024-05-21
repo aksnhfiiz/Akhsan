@@ -1,0 +1,118 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    background-color: #f9f9f9;
+  }
+  .header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  .header .logo {
+    width: 80px;
+  }
+  .total-pembayaran label, .total-pembayaran strong{
+    color: red;
+    font-size: 30px;
+    display: absolute;
+    padding: 20px;
+    align-items: center;
+    margin-left: 30px;
+  }
+  .total-pembayaran{
+    border: 1px solid #000000;
+  }
+  .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  .form-group label {
+    flex: 1;
+    margin-right: 10px;
+  }
+  .form-group input, .form-group select {
+    flex: 2;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Ensure there's a border for visual effect */
+    border-radius: 10px; /* Add rounded corners */
+    background-color: #a8a6a6; /* Match the style in the image */
+  }
+  .form-group.date {
+    display: absolute;
+  }
+  .items-table {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  .items-table th, .items-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  .items-table th {
+    background-color: #f9f9f9;
+  }
+  .total {
+    grid-column: 1 / -1;
+    display: absolute;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .total .form-group {
+    display: absolute;
+    align-items: center;
+  }
+  .total .form-group label {
+    margin-right: 10px;
+  }
+  .total .form-group input, .total .form-group span{
+    padding: 5px;
+    border-radius: 10px; /* Add rounded corners */
+    background-color: #a8a6a6; /* Match the style in the image */
+  }
+  .button-add, .button-remove, .button-finish {
+    padding: 10px;
+    border: none;
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer;
+  }
+  .button-add {
+    background-color: #5cb85c;
+    color: white;
+    align-items: flex-end;
+  }
+  .button-remove {
+    background-color: transparent;
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .button-finish {
+    background-color: green;
+    color: white;
+  }
+  .submit-button {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  .form-past input{
+    border-radius: 5px;
+    background-color: #a8a6a6;
+  }

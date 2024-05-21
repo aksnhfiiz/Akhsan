@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pembelian</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="container">
+    <div class="header">
+      <div><label>WARUNG KUNING</label></div>
+      <div><img src="assets/warung.png" alt="Logo" class="logo"></div>
+    </div>
+   
+    <div class="form-group">
+      <label>No. Nota:</label>
+      <input type="text" v-model="nota" class="input-text">
+    </div>
+
+    <div class="total-pembayaran">
+        <label>Total Pembayaran:</label>
+        <strong>Rp. {{ totalPembayaran.toFixed(2) }}</strong>
+    </div>
+
+    <div class="form-group">
+      <label>Pelanggan:</label>
+      <input type="text" v-model="pelanggan" class="input-text">
+    </div>
+
+    <div class="form-group date">
+      <label>Tanggal:</label>
+      <input type="date" v-model="tanggal" class="input-text">
+    </div>
+
+    <div class="form-group">
+      <label>Kode Barang:</label>
+      <select v-model="selectedItem" class="input-text">
+        <option v-for="item in items" :value="item">{{ item.id }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Nama Barang:</label>
+      <input type="text" v-model="selectedItem.nama" class="input-text" disabled>
+    </div>
+
+    <div class="form-group">
+      <label>Quantity:</label>
+      <input type="number" v-model.number="quantity" class="input-text">
+    </div>
+
+    <div class="form-group">
+      <button @click="addItem" class="button-add">Add</button>
+    </div>
+
+    <table class="items-table">
+      <thead>
+        <tr>
+          <th>ID Barang</th>
+          <th>Nama Barang</th>
+          <th>Harga Satuan</th>
+          <th>Qty</th>
+          <th>Jumlah</th>
+          <th>Opsi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in invoiceItems" :key="index">
+          <td>{{ item.id }}</td>
+          <td>{{ item.nama }}</td>
+          <td>Rp. {{ item.harga.toFixed(2) }}</td>
+          <td>{{ item.qty }}</td>
+          <td>Rp. {{ (item.harga * item.qty).toFixed(2) }}</td>
+          <td><button @click="removeItem(index)" class="button-remove">Hapus</button></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="total">
+    <div id="app" class="container">
+      <div class="form-past">
+        <label>Sub Total: Rp.</label>
+        <span class="input-text">{{ subTotal.toFixed(2) }}</span>
+      </div>
+
+      <div class="form-past">
+        <label>Diskon:</label>
+        <input type="number" v-model.number="diskon" class="input-text">
+        <span class="input-text">%   = Rp. {{ diskonAmount.toFixed(2) }}</span>
+      </div>
+
+      <div class="form-past">
+        <label>Total Harga: Rp.</label>
+        <span class="input-text">{{ totalHarga.toFixed(2) }}</span>
+      </div>
+    </div>
+
+    <div id="app" class="container">
+      <div class="form-past">
+        <label>Bayar: Rp.</label>
+        <input type="number" v-model.number="bayar" class="input-text">
+      </div>
+
+      <div class="form-past">
+        <label>Kembalian: Rp.</label>
+        <span class="input-text">{{ kembalian.toFixed(2) }}</span>
+      </div>
+    </div>
+    </div>
+    <div class="submit-button">
+      <button @click="completeTransaction" class="button-finish">Selesai</button>
+    </div>
+  </div>
+
+  <script src="mprpl.js"></script>
+</body>
+</html>
